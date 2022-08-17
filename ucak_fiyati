@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class ucak {
+    public static void main(String[] args) {
+        double km, age, tip, total = 1  , discount = 0;
+
+        Scanner bjk = new Scanner(System.in);
+
+        System.out.println("Lutfen yolculuk mesafesini ( km )  olarak  giriniz  : ");
+        km = bjk.nextInt();
+
+        System.out.println("Lutfen yolcunun yas bilgisini giriniz  : ");
+        age = bjk.nextInt();
+
+        System.out.println("Lutfen yolculuk tipini seciniz \n : 1-Tek Yon \n : 2-Gidis-Donus ");
+        tip = bjk.nextInt();
+
+        if (km > 0 && age > 0) {
+            if (0 < tip && tip < 3) {
+                if (tip == 1) {
+                    total *= (0.1 * km);
+                } else if (tip == 2) {
+                    total *= (0.2 * km);
+                }
+                System.out.println(" Toplam yolculuk tutariniz = " + total);
+            }
+        }else {
+            System.out.println("Yolculuk bilgileri hatali tekrar deneyinizz : ");
+        }
+
+        System.out.println("Yolculuk icin indirim tutariniz hesaplaniyor : ");
+
+        if (age < 12) {
+            discount = total / 2;
+            System.out.println("indirim tutariniz hesaplandi : " );
+        } else if (age < 15) {
+            discount = total * 0.1;
+            System.out.println("indirim tutariniz hesaplandi : " );
+
+        } else if (65 < age) {
+            discount = total * 0.3;
+        } else {
+            total = 0;
+            System.out.println("indirim tutariniz 0 tl , iyi ucuslar ");
+        }
+
+        if (tip == 1) {
+            total -= discount;
+            System.out.println("Odemeniz gereken tutar : " + total);
+        } else {
+            total = (total - discount) - ((total - discount) * 0.2);
+            System.out.println("Odemeniz gereken tutar : " + total + "TL");
+
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
